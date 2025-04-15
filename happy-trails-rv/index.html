@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Trails RV Rental - Northern Michigan</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@heroicons/v1/outline"></script>
+  <!-- Add custom styles -->
+  <style>
+    :root {
+      --brand-green: #2F4A1C;
+      --brand-orange: #E67E22;
+      --brand-cream: #F5E6D3;
+      --brand-blue: #2980B9;
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .faq-content.active {
+      max-height: 500px;
+    }
+    .brand-button {
+      background-color: var(--brand-orange);
+    }
+    .brand-button:hover {
+      background-color: #D35400;
+    }
+    /* Add mobile menu styles */
+    .mobile-menu {
+      display: none;
+    }
+    .mobile-menu.active {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center">
+          <img src="assets/logo.png" alt="Happy Trails RV Rental" class="h-12 md:h-16 w-auto">
+          <span class="ml-2 text-lg md:text-xl font-bold" style="color: var(--brand-green);">Happy Trails RV</span>
+        </div>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 desktop-menu">
+          <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+          <a href="#rv-fleet" class="text-gray-600 hover:text-gray-900">RVs</a>
+          <a href="#requirements" class="text-gray-600 hover:text-gray-900">Requirements</a>
+          <a href="#faq" class="text-gray-600 hover:text-gray-900">FAQ</a>
+          <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none" id="mobile-menu-button">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <a href="https://recrego.app/happy-trails-rv-rental" target="_blank" 
+           class="hidden md:block brand-button text-white px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base">
+          Book Now
+        </a>
+      </div>
+      <!-- Mobile Menu Dropdown -->
+      <div class="mobile-menu md:hidden pb-4" id="mobile-menu">
+        <div class="flex flex-col space-y-3">
+          <a href="#about" class="text-gray-600 hover:text-gray-900 px-4">About</a>
+          <a href="#rv-fleet" class="text-gray-600 hover:text-gray-900 px-4">RVs</a>
+          <a href="#requirements" class="text-gray-600 hover:text-gray-900 px-4">Requirements</a>
+          <a href="#faq" class="text-gray-600 hover:text-gray-900 px-4">FAQ</a>
+          <a href="#contact" class="text-gray-600 hover:text-gray-900 px-4">Contact</a>
+          <a href="https://recrego.app/happy-trails-rv-rental" target="_blank" 
+             class="brand-button text-white px-4 py-2 rounded-full font-semibold text-center mx-4">
+            Book Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="h-screen bg-cover bg-center flex items-center justify-center text-white relative pt-16" 
+           style="background-image: url('https://images.unsplash.com/photo-1533873984035-25970ab07461?ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80');">
+    <div class="absolute inset-0" style="background-color: var(--brand-green); opacity: 0.7;"></div>
+    <div class="relative z-10 text-center px-4 md:px-8 max-w-4xl mx-auto">
+      <img src="assets/logo.png" alt="Happy Trails RV Rental" class="h-48 md:h-64 lg:h-80 w-auto mx-auto mb-6">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-3">RV Rental in Northern Michigan</h1>
+      <p class="text-lg md:text-xl mb-6">Experience the Great Outdoors in Comfort</p>
+      <a href="https://recrego.app/happy-trails-rv-rental" target="_blank" 
+         class="brand-button text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg inline-block">
+        Start Your Adventure
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About Us</h2>
+      <p class="text-lg leading-relaxed text-gray-700">
+        Welcome to Happy Trails RV Rental, your family-owned RV rental service in beautiful Northern Michigan. 
+        We're proud to offer pet-friendly RVs perfect for weekend getaways or extended vacations. 
+        Based in Grayling, we're your gateway to exploring Michigan's natural wonders in comfort and style.
+      </p>
+    </div>
+  </section>
+
+  <!-- Available RVs -->
+  <section id="rv-fleet" class="bg-gray-50 py-12 md:py-16 px-4" style="background-color: var(--brand-cream);">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center" style="color: var(--brand-green);">Our RV Fleet</h2>
+      
+      <!-- Rental Listing Component -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+        <div class="flex flex-col md:flex-row">
+          <!-- Image Section -->
+          <div class="w-full md:w-2/5 relative">
+            <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800" 
+                 alt="2021 Jayco Jay Flight" 
+                 class="w-full h-64 md:h-full object-cover">
+            <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Featured
+            </div>
+          </div>
+          
+          <!-- Content Section -->
+          <div class="w-full md:w-3/5 p-4 md:p-8">
+            <div class="flex-grow">
+              <!-- Title -->
+              <h3 class="text-xl md:text-2xl font-bold mb-4 text-red-600">
+                2021 JAYCO JAY FLIGHT – $130/DAY
+              </h3>
+              
+              <!-- Pricing Grid -->
+              <div class="grid grid-cols-2 gap-3 md:gap-4 mb-6 text-sm">
+                <div class="bg-gray-50 p-2 md:p-3 rounded">
+                  <span class="font-semibold">Daily Rate:</span>
+                  <br>$130
+                </div>
+                <div class="bg-gray-50 p-2 md:p-3 rounded">
+                  <span class="font-semibold">Weekly Rate:</span>
+                  <br>$700
+                </div>
+                <div class="bg-gray-50 p-2 md:p-3 rounded">
+                  <span class="font-semibold">Monthly Rate:</span>
+                  <br>$2,800
+                </div>
+                <div class="bg-gray-50 p-2 md:p-3 rounded">
+                  <span class="font-semibold">Security Deposit:</span>
+                  <br>$500
+                </div>
+              </div>
+              
+              <!-- Features -->
+              <div class="mb-6">
+                <h4 class="font-semibold mb-2">Features:</h4>
+                <ul class="grid grid-cols-2 gap-2 text-sm">
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Sleeps 8-10
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Full Kitchen
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Air Conditioning
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Bathroom
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Power Awning
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Entertainment System
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Booking Calendar Container -->
+              <div class="mb-6">
+                <h4 class="font-semibold mb-2">Booking Calendar</h4>
+                <div class="border border-gray-200 rounded-lg shadow-sm p-3 md:p-4 bg-white min-h-[250px] md:min-h-[300px] w-full flex items-center justify-center">
+                  <!-- 
+                    INSTRUCTIONS FOR ADDING RECREGO CALENDAR:
+                    1. Go to your Recrego dashboard
+                    2. Navigate to "Widgets" or "Embed Options"
+                    3. Copy the calendar embed code for this specific RV
+                    4. Replace everything between these comment tags with the embed code
+                    5. The container is pre-styled and responsive - the calendar will fit automatically
+                    
+                    Example embed code structure:
+                    <iframe 
+                      src="https://recrego.app/happy-trails-rv-rental/calendar/rv-name" 
+                      width="100%" 
+                      height="100%" 
+                      frameborder="0" 
+                      style="min-height: 300px;"
+                    ></iframe>
+                  -->
+                  <p class="text-gray-500 text-center text-sm md:text-base">Embed Recrego booking calendar here</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Booking Section -->
+            <div class="border-t pt-4 md:pt-6">
+              <a href="https://recrego.app/happy-trails-rv-rental" 
+                 class="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 rounded-lg font-semibold transition-colors duration-200 text-sm md:text-base">
+                Book Now
+              </a>
+              <p class="text-center text-xs md:text-sm text-gray-500 mt-2">
+                Real-time availability shown on booking page
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Rental Listing (Example of reuse) -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="md:flex">
+          <!-- Image Section -->
+          <div class="md:w-2/5 relative">
+            <img src="https://images.unsplash.com/photo-1543395136-75b39bc00e0e?auto=format&fit=crop&w=800" 
+                 alt="2023 Wildcat Fifth Wheel" 
+                 class="w-full h-full object-cover min-h-[300px]">
+          </div>
+          
+          <!-- Content Section -->
+          <div class="md:w-3/5 p-6 md:p-8 flex flex-col">
+            <div class="flex-grow">
+              <!-- Title -->
+              <h3 class="text-2xl font-bold mb-2 text-red-600">
+                2023 WILD CAT FIFTH WHEEL – $150/DAY
+              </h3>
+              
+              <!-- Pricing Grid -->
+              <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
+                <div class="bg-gray-50 p-3 rounded">
+                  <span class="font-semibold">Daily Rate:</span>
+                  <br>$150
+                </div>
+                <div class="bg-gray-50 p-3 rounded">
+                  <span class="font-semibold">Weekly Rate:</span>
+                  <br>$900
+                </div>
+                <div class="bg-gray-50 p-3 rounded">
+                  <span class="font-semibold">Monthly Rate:</span>
+                  <br>$3,200
+                </div>
+                <div class="bg-gray-50 p-3 rounded">
+                  <span class="font-semibold">Security Deposit:</span>
+                  <br>$500
+                </div>
+              </div>
+              
+              <!-- Features -->
+              <div class="mb-6">
+                <h4 class="font-semibold mb-2">Features:</h4>
+                <ul class="grid grid-cols-2 gap-2 text-sm">
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Sleeps 6-8
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Luxury Interior
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Solar Ready
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Outdoor Kitchen
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    LED Lighting
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Smart TV
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Booking Calendar Container -->
+              <div class="mb-6">
+                <h4 class="font-semibold mb-2">Booking Calendar</h4>
+                <div class="border border-gray-200 rounded-lg shadow-sm p-4 bg-white min-h-[300px] lg:w-full flex items-center justify-center">
+                  <!-- 
+                    INSTRUCTIONS FOR ADDING RECREGO CALENDAR:
+                    1. Go to your Recrego dashboard
+                    2. Navigate to "Widgets" or "Embed Options"
+                    3. Copy the calendar embed code for this specific RV
+                    4. Replace everything between these comment tags with the embed code
+                    5. The container is pre-styled and responsive - the calendar will fit automatically
+                    
+                    Example embed code structure:
+                    <iframe 
+                      src="https://recrego.app/happy-trails-rv-rental/calendar/rv-name" 
+                      width="100%" 
+                      height="100%" 
+                      frameborder="0" 
+                      style="min-height: 300px;"
+                    ></iframe>
+                  -->
+                  <p class="text-gray-500 text-center">Embed Recrego booking calendar here</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Booking Section -->
+            <div class="border-t pt-6">
+              <a href="https://recrego.app/happy-trails-rv-rental" 
+                 class="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 rounded-lg font-semibold transition-colors duration-200">
+                Book Now
+              </a>
+              <p class="text-center text-sm text-gray-500 mt-2">
+                Real-time availability shown on booking page
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section id="requirements" class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--brand-green);">Rental Requirements</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-4" style="color: var(--brand-orange);">Driver Requirements</h3>
+          <ul class="space-y-3">
+            <li>✓ Minimum age: 25 years</li>
+            <li>✓ Valid driver's license</li>
+            <li>✓ Clean driving record</li>
+            <li>✓ Security deposit required</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-4" style="color: var(--brand-orange);">Policies</h3>
+          <ul class="space-y-3">
+            <li>✓ No smoking in RV</li>
+            <li>✓ Pets require approval</li>
+            <li>✓ Return with full fuel tank</li>
+            <li>✓ Clean interior required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faq" class="py-16 px-4" style="background-color: var(--brand-cream);">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--brand-green);">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full px-6 py-4 text-left focus:outline-none">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold" style="color: var(--brand-green);">Do I need insurance?</span>
+              <span class="transform transition-transform duration-200">▼</span>
+            </div>
+          </button>
+          <div class="faq-content px-6 pb-4">
+            <p>Yes, insurance is required. We offer insurance coverage through our rental agreement, or you can provide proof of coverage through your personal insurance.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full px-6 py-4 text-left focus:outline-none">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold" style="color: var(--brand-green);">How far can I take the RV?</span>
+              <span class="transform transition-transform duration-200">▼</span>
+            </div>
+          </button>
+          <div class="faq-content px-6 pb-4">
+            <p>You can travel anywhere in the continental United States and Canada. We just ask that you let us know your planned route for emergency support.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full px-6 py-4 text-left focus:outline-none">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold" style="color: var(--brand-green);">What is the cancellation policy?</span>
+              <span class="transform transition-transform duration-200">▼</span>
+            </div>
+          </button>
+          <div class="faq-content px-6 pb-4">
+            <p>Full refund if cancelled 14 days before pickup. 50% refund if cancelled 7 days before pickup. No refund for cancellations less than 7 days before pickup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--brand-green);">Contact Us</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <div class="bg-white p-6 rounded-lg shadow mb-6">
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--brand-orange);">Get in Touch</h3>
+            <p class="mb-2">📞 (123) 456-7890</p>
+            <p class="mb-2">✉️ info@happytrailsrv.com</p>
+            <p>📍 Grayling, MI</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--brand-orange);">Hours of Operation</h3>
+            <p class="mb-2">Monday - Friday: 9am - 5pm</p>
+            <p class="mb-2">Saturday: 9am - 3pm</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+        <div class="h-96 bg-gray-200 rounded-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45894.97745453899!2d-84.71638!3d44.661654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d35c831c3c6dc91%3A0x5d4b6c256c292d91!2sGrayling%2C%20MI%2049738!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 text-white" style="background-color: var(--brand-green);">
+    <div class="max-w-6xl mx-auto text-center">
+      <img src="assets/logo.png" alt="Happy Trails RV Rental" class="h-20 w-20 mx-auto mb-4">
+      <p class="mb-4">Happy Trails RV Rental - Your Gateway to Northern Michigan Adventures</p>
+      <p class="opacity-75">© 2024 Happy Trails RV Rental. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    document.querySelectorAll('#faq button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const arrow = button.querySelector('span:last-child');
+        content.classList.toggle('active');
+        arrow.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : '';
+      });
+    });
+  </script>
+
+  <!-- Tidio Chat Widget -->
+  <script src="//code.tidio.co/YOUR_PUBLIC_KEY.js" async></script>
+
+  <!-- Add mobile menu JavaScript -->
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.remove('active');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.getElementById('mobile-menu-button');
+      if (menu.classList.contains('active') && 
+          !menu.contains(e.target) && 
+          !button.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
